@@ -18,8 +18,8 @@ type PostServiceImpl struct {
 	ctx            context.Context
 }
 
-func NewPostService(postCollection *mongo.Collection, ctx context.Context) PostServiceImpl {
-	return PostServiceImpl{postCollection, ctx}
+func NewPostService(postCollection *mongo.Collection, ctx context.Context) PostService {
+	return &PostServiceImpl{postCollection, ctx}
 }
 
 func (p *PostServiceImpl) CreatePost(post *models.CreatePostRequest) (*models.DBPost, error) {
